@@ -10,8 +10,8 @@ interface ButtonProps {
 
 const Button = ({ title, action, inverted = false, small = false }: ButtonProps) => {
   return (
-    <S.Button onPress={action}>
-      <S.Value>{title}</S.Value>
+    <S.Button onPress={action} inverted={inverted} small={small}>
+      <S.Value inverted={inverted}>{title}</S.Value>
     </S.Button>
   );
 };
