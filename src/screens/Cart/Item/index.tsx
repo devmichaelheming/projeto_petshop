@@ -12,10 +12,9 @@ export const Quantity = StyleSheet.create({
   },
 });
 
-const Item = ({ name, price, description }: ItemProps) => {
-  const [quantity, setQuantity] = useState(1);
-  const [total, setTotal] = useState(price);
-  const [expand, setExpand] = useState(false);
+const Item = ({ name, price, description, quantity: quantityInitial }: ItemProps) => {
+  const [quantity, setQuantity] = useState(quantityInitial);
+  const [total, setTotal] = useState(price * quantityInitial);
 
   const updateQuantity = (newQuantity: number) => {
     setQuantity(newQuantity);
@@ -26,35 +25,28 @@ const Item = ({ name, price, description }: ItemProps) => {
     setTotal(newQuantity * price);
   };
 
-  const invertedExpand = () => {
-    setExpand(!expand);
-    updateQuantity(1);
-  };
-
   return (
     <>
-      <S.Information onPress={invertedExpand}>
+      <S.Information>
         <S.Name>{name}</S.Name>
         <S.Description>{description}</S.Description>
         <S.Price>{numberFormat(price, "BRL")}</S.Price>
       </S.Information>
 
-      {expand && (
-        <S.Cart>
-          <View>
-            <S.Value>
-              <S.Quantity>Quantidade</S.Quantity>
-              <WholeField value={quantity} action={updateQuantity} width={42} />
-            </S.Value>
+      <S.Cart>
+        <View>
+          <S.Value>
+            <S.Quantity>Quantidade</S.Quantity>
+            <WholeField value={quantity} action={updateQuantity} width={42} />
+          </S.Value>
 
-            <S.Value>
-              <S.Quantity>Total</S.Quantity>
-              <S.Price>{numberFormat(total, "BRL")}</S.Price>
-            </S.Value>
-          </View>
-          <Button title="Adicionar ao carrinho" action={() => {}} />
-        </S.Cart>
-      )}
+          <S.Value>
+            <S.Quantity>Total</S.Quantity>
+            <S.Price>{numberFormat(total, "BRL")}</S.Price>
+          </S.Value>
+        </View>
+        <Button title="Remover do carrinho" action={() => {}} />
+      </S.Cart>
 
       <S.Divider />
     </>

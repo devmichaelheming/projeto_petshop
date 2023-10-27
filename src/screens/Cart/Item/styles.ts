@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { colors } from "~/styles";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text } from "react-native";
 
-export const Information = styled(TouchableOpacity)`
+export const Information = styled(View)`
   padding: 24px;
 `;
 

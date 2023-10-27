@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colorsProps } from "../Entity";
+import { colorsProps } from "~/Entity";
 
 export default StyleSheet.create({
   preencher: {
