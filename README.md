@@ -1,6 +1,8 @@
 # Projeto Pet Shop
 App de um Pet Shop, contendo uma tela de serviços e outra tela do carrinho de compras.
 
+<img src="./assets/preview.gif" alt="GIF" width="300">
+
 > Status: Finalizado ⚠️
 
 ## Instalação.
