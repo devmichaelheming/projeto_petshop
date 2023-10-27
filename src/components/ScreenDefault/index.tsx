@@ -16,7 +16,7 @@ const ScreenDefault = ({ children }: ScreenDefault) => {
         <S.Keyboard behavior={Platform.OS === "ios" ? "padding" : "height"}>{children}</S.Keyboard>
       </S.Container>
 
-      <S.Footer></S.Footer>
+      <S.Footer />
     </>
   );
 };
